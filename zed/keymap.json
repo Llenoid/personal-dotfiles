@@ -1,0 +1,125 @@
+[
+  // Normal Mode Editor
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // Clear search highlights
+      "escape": "search::Cancel",
+
+      // Window Navigation (Ctrl + hjkl)
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+
+      // Window Splitting & Management
+      "space |": "pane::SplitRight",
+      "space _": "pane::SplitDown",
+      "space w d": "pane::CloseActiveItem",
+
+      // Buffer Navigation
+      "[ b": "pane::ActivatePreviousItem",
+      "] b": "pane::ActivateNextItem",
+      "space b d": "pane::CloseActiveItem",
+
+      // Viewport & Search Centering
+      "ctrl-d": ["workspace::SendKeystrokes", "ctrl-d z z"],
+      "ctrl-u": ["workspace::SendKeystrokes", "ctrl-u z z"],
+      "n": ["workspace::SendKeystrokes", "n z z"],
+      "N": ["workspace::SendKeystrokes", "N z z"],
+
+      // Registers & System Clipboard
+      "space y": ["workspace::SendKeystrokes", "\" + y"],
+      "space Y": ["workspace::SendKeystrokes", "\" + Y"],
+      "space d": ["workspace::SendKeystrokes", "\" _ d"],
+
+      // Diagnostics & LSP
+      "[ d": "editor::GoToPreviousDiagnostic",
+      "] d": "editor::GoToDiagnostic",
+      "space e": "editor::Hover",
+      "space q": "diagnostics::Deploy",
+      "space t h": "editor::ToggleInlayHints",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDefinitionSplit",
+      "g i": "editor::GoToImplementation",
+      "g r r": "editor::FindAllReferences",
+
+      // Quickfix Aliases
+      "[ q": "editor::GoToPreviousDiagnostic",
+      "] q": "editor::GoToDiagnostic",
+      "space q o": "diagnostics::Deploy",
+
+      // Search & Files
+      "space space": "file_finder::Toggle",
+      "space /": "pane::DeploySearch"
+    }
+  },
+
+  // Visual Mode
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      // Move visual blocks (Shift+J / Shift+K)
+      "J": "editor::MoveLineDown",
+      "K": "editor::MoveLineUp",
+
+      // Selection Clipboard & Blackhole Operations
+      "space y": ["workspace::SendKeystrokes", "\" + y"],
+      "space p": ["workspace::SendKeystrokes", "\" _ d p"],
+      "space d": ["workspace::SendKeystrokes", "\" _ d"],
+
+      // Formatting
+      "<": "editor::Outdent",
+      ">": "editor::Indent",
+      "g c": "editor::ToggleComments"
+    }
+  },
+
+  // Insert Mode
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCompletion"
+    }
+  },
+
+  // Project Panel (Docked Right)
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "space f": "workspace::ToggleRightDock",
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+      "h": "project_panel::CollapseSelectedEntry",
+      "l": "project_panel::ExpandSelectedEntry"
+    }
+  },
+
+  // Right Dock Panels (Git, Assistant, Outline)
+  {
+    "context": "Dock",
+    "bindings": {
+      "q": "workspace::ToggleRightDock",
+      "ctrl-h": "workspace::ActivatePaneLeft"
+    }
+  },
+
+  // Terminal (Docked Bottom)
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "space t": "workspace::ToggleBottomDock"
+    }
+  }
+]

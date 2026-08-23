@@ -1,0 +1,144 @@
+font-family = "JetBrainsMono Nerd Font"
+font-synthetic-style = true
+font-thicken = false
+font-size = 14
+adjust-cursor-thickness=1
+freetype-load-flags = "hinting"
+# theme = "OneHalfDark"
+cursor-invert-fg-bg = true
+cursor-opacity = "1"
+cursor-style="block"
+cursor-style-blink = true
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = true
+desktop-notifications = true
+bold-is-bright = true
+background-blur = false
+background-opacity = 1
+minimum-contrast = 1.5
+gtk-tabs-location = top
+gtk-titlebar = false
+gtk-wide-tabs = true
+quick-terminal-screen = mouse
+confirm-close-surface = false
+initial-command = 
+quit-after-last-window-closed=true
+# gtk-single-instance=false
+gtk-single-instance = true
+initial-window = true
+scrollback-limit = 10000000
+gtk-custom-css="./tab-style.css"
+# fullscreen="true"
+adjust-underline-position = "20%"
+
+window-decoration = client
+window-inherit-working-directory=true
+window-padding-x = 16
+window-padding-y = 16, 0
+window-width = 174
+window-height = 42
+window-new-tab-position = current
+# false, working-directory
+window-subtitle = working-directory 
+
+shell-integration = zsh
+shell-integration-features = cursor
+
+# background = #1b1e28
+# foreground = #ffffff
+# cursor-color = #F712FF
+
+# # black
+# palette = 0=#0D1116
+# palette = 8=#5fa9f4
+# # red
+# palette = 1=#f16c75
+# palette = 9=#f16c75
+# # green
+# palette = 2=#37f499
+# palette = 10=#37f499
+# # yellow
+# palette = 3=#19dfcf
+# palette = 11=#19dfcf
+# # blue
+# palette = 4=#987afb
+# palette = 12=#987afb
+# # purple
+# palette = 5=#949ae5
+# palette = 13=#949ae5
+# # aqua
+# palette = 6=#04d1f9
+# palette = 14=#04d1f9
+# # white
+# palette = 7=#ebfafa
+# palette = 15=#ebfafa
+
+# resize_split
+keybind = ctrl+alt+up=resize_split:up,4
+keybind = ctrl+alt+down=resize_split:down,4
+keybind = ctrl+alt+right=resize_split:right,4
+keybind = ctrl+alt+left=resize_split:left,4
+
+# split_navigation
+keybind = alt+h=goto_split:left
+keybind = alt+j=goto_split:bottom
+keybind = alt+l=goto_split:right
+keybind = alt+k=goto_split:top
+keybind = ctrl+left_bracket=goto_split:previous
+keybind = ctrl+right_bracket=goto_split:next
+
+keybind = alt+\=new_split:right
+keybind = alt+-=new_split:down
+
+keybind = ctrl+shift+w=close_surface 
+keybind = alt+z=toggle_split_zoom
+
+# keybind = global:super+shift+t=toggle_quick_terminal
+
+# Some shaders can be found in this repo, they're usually uploaded to discord
+# https://github.com/hackrmomo/ghostty-shaders
+# custom-shader = shaders/animated-gradient-shader.glsl
+# custom-shader = shaders/bettercrt.glsl
+# custom-shader = shaders/bloom.glsl
+# custom-shader = shaders/bloom1.glsl
+# custom-shader = shaders/bloom075.glsl
+# custom-shader = shaders/bloom060.glsl
+# custom-shader = shaders/bloom050.glsl
+# custom-shader = shaders/bloom025.glsl
+# custom-shader = shaders/bloom050.glsl
+# custom-shader = shaders/bloom060.glsl
+# custom-shader = shaders/bloom075.glsl
+# custom-shader = shaders/bloom1.glsl
+# custom-shader = shaders/crt.glsl
+# custom-shader = shaders/cubes.glsl
+# custom-shader = shaders/dither.glsl
+# custom-shader = shaders/drunkard.glsl
+# custom-shader = shaders/fireworks-rockets.glsl
+# custom-shader = shaders/fireworks.glsl
+# custom-shader = shaders/gears-and-belts.glsl
+# custom-shader = shaders/glitchy.glsl
+# custom-shader = shaders/glow-rgbsplit-twitchy.glsl
+# custom-shader = shaders/gradient-background.glsl
+# custom-shader = shaders/inside-the-matrix.glsl
+# custom-shader = shaders/just-snow.glsl
+# custom-shader = shaders/matrix-hallway.glsl
+# custom-shader = shaders/negative.glsl
+# custom-shader = shaders/retro-terminal.glsl
+# custom-shader = shaders/smoke-and-ghost.glsl
+# custom-shader = shaders/sparks-from-fire.glsl
+# custom-shader = shaders/spotlight.glsl
+# custom-shader = shaders/starfield-colors.glsl
+# custom-shader = shaders/starfield.glsl
+# custom-shader = shaders/tft.glsl
+# custom-shader = shaders/underwater.glsl
+# custom-shader = shaders/water.glsl
+# custom-shader = shaders/cursor_blaze.glsl
+# custom-shader = shaders/cursor_blaze_no_trail.glsl
+# custom-shader = shaders/cursor_smear.glsl
+# custom-shader = shaders/cursor_smear_fade.glsl
+
+# Theme
+# config-file = themes/one_dark-theme
+theme = "Catppuccin Mocha"
+config-file = custom/keybinds

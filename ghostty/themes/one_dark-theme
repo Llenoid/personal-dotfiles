@@ -1,0 +1,26 @@
+# One Dark by Giuseppe Cesarano, https://github.com/GiuseppeCesarano
+# This work is licensed under the terms of the GPL-2.0 license.
+# For a copy, see https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html.
+
+# Colors
+
+foreground=#979eab
+background=#282c34
+cursor-color=#ff8758
+
+palette=15=#282c34
+palette=9=#e06c75
+palette=2=#98c379
+palette=5=#e5c07b
+palette=12=#61afef
+palette=6=#be5046
+palette=7=#56b6c2
+palette=8=#979eab
+palette=3=#393e48
+palette=10=#d19a66
+palette=11=#56b6c2
+palette=4=#e5c07b
+palette=13=#61afef
+palette=1=#be5046
+palette=14=#56b6c2
+palette=16=#abb2bf
