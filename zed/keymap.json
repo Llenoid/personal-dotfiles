@@ -4,7 +4,7 @@
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
       // Clear search highlights
-      "escape": "search::Cancel",
+      "escape": "editor::Cancel",
 
       // Window Navigation (Ctrl + hjkl)
       "ctrl-h": "workspace::ActivatePaneLeft",
