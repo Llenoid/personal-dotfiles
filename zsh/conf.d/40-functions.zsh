@@ -14,10 +14,10 @@ function _load_fnm() {
 }
 
 # Create the "Stubs" for every command you use
-function fnm()  { _load_fnm; fnm "$@" }
-function node() { _load_fnm; node "$@" }
-function npm()  { _load_fnm; npm "$@" }
-function npx()  { _load_fnm; npx "$@" }
+function fnm()  { _load_fnm; command fnm "$@" }
+function node() { _load_fnm; command node "$@" }
+function npm()  { _load_fnm; command npm "$@" }
+function npx()  { _load_fnm; command npx "$@" }
 function gemini() { _load_fnm; command gemini "$@" }
 
 # Python (pyenv)
