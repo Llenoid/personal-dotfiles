@@ -1,0 +1,40 @@
+#compdef opencode
+###-begin-opencode-completions-###
+#
+# Optimized yargs command completion script with dynamic session injection
+#
+_opencode_yargs_completions()
+{
+  local reply
+  local si=$IFS
+
+  # Check if the previous word typed was -s or --session
+  if [[ "${words[CURRENT-1]}" == "-s" || "${words[CURRENT-1]}" == "--session" ]]; then
+    if command -v opencode >/dev/null 2>&1; then
+      local -a sessions
+      if command -v jq >/dev/null 2>&1; then
+        sessions=(${(f)"$(opencode session list --max-count 20 --format json 2>/dev/null | jq -r '.[] | "\(.id):\(.title)"')"})
+      else
+        sessions=(${(f)"$(opencode session list --max-count 20 --format json 2>/dev/null | awk -F'"' '/"id":/{id=$4}/"title":/{print id ":" $4}')"})
+      fi
+      _describe 'open_code_sessions' sessions
+      return 0
+    fi
+  fi
+
+  # Fallback to standard yargs command/flag completion
+  IFS=$'\n' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" opencode --get-yargs-completions "${words[@]}"))
+  IFS=$si
+  if [[ ${#reply} -gt 0 ]]; then
+    _describe 'values' reply
+  else
+    _default
+  fi
+}
+
+if [[ "${zsh_eval_context[-1]}" == "loadautofunc" ]]; then
+  _opencode_yargs_completions "$@"
+else
+  compdef _opencode_yargs_completions opencode
+fi
+###-end-opencode-completions-###

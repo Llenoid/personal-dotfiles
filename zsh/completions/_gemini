@@ -1,0 +1,23 @@
+#compdef gemini
+
+_gemini() {
+    local line
+    _arguments -C \
+        '--delete-session[Delete a specific session]:session_id' \
+        '--delete-all-sessions[Wipe all history]' \
+        '--all-files[Include all files in the current directory]' \
+        '--help[Show help information]' \
+        '--include-directories[Include additional context directories]:dir:_files -/' \
+        '--list-sessions[List available sessions]' \
+        '-m[Select a model]:model:(gemini-2.0-flash gemini-2.0-pro)' \
+        '--model[Select a model]:model:(gemini-2.0-flash gemini-2.0-pro)' \
+        '-p[Single prompt mode]:prompt' \
+        '--prompt[Single prompt mode]:prompt' \
+        '-i[Interactive prompt mode]:prompt' \
+        '--prompt-interactive[Interactive prompt mode]:prompt' \
+        '--resume[Resume a session]:session_id' \
+        '--sandbox[Run in a secure sandbox]' \
+        '--version[Show version information]'
+}
+
+_gemini "$@"
