@@ -1,5 +1,4 @@
 zsh/.zprofile
-zsh/.zshrc
 zsh/plugins
 zsh/*.zwc
 zsh/*zcompdump
