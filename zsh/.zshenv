@@ -52,6 +52,7 @@ export SUDO_EDITOR="$EDITOR"
 path=(${path:#$HOME/.cargo/bin})
 
 path=(
+  $XDG_DATA_HOME/nvim/mason/bin
   $HOME/.local/bin
   $CARGO_HOME/bin
   $NPM_CONFIG_PREFIX/bin
