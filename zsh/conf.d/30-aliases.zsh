@@ -153,3 +153,4 @@ alias zclean="rm -f $ZDOTDIR/**/*.zwc"
 # alias win-start='win-on && win-view'
 alias wlc='wl-copy'
 alias y='yazi'
+alias e='emacs'

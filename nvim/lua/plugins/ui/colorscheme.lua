@@ -38,4 +38,34 @@ local T = {
 	end,
 }
 
+local U = {
+	dir = "~/dev/dotfiles/colorschemes/pandas",
+	name = "pandas",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd.colorscheme("pandas")
+	end,
+}
+
+local V = {
+	dir = "~/dev/dotfiles/colorschemes/compline",
+	name = "compline",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd.colorscheme("compline")
+	end,
+}
+
+local W = {
+	"shaunsingh/nord.nvim",
+	name = "nord",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd.colorscheme("nord")
+	end,
+}
+
 return S

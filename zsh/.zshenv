@@ -48,6 +48,7 @@ export UV_TOOL_BIN_DIR="$HOME/.local/bin"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export SUDO_EDITOR="$EDITOR"
+export EMACS="$HOME/.config/emacs/"
 
 path=(${path:#$HOME/.cargo/bin})
 
@@ -61,6 +62,7 @@ path=(
   $XDG_DATA_HOME/opencode/bin
   $HOME/.local/opt/kitty.app/bin
   $JAVA_HOME/bin
+  $EMACS/bin
   /usr/local/go/bin
   /usr/local/bin
   /usr/bin

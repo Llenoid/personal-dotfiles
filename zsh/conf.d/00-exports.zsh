@@ -2,6 +2,7 @@
 export GOPATH="$HOME/Documents/go"
 export CHROME_LOGIN_HELPER=gnome-keyring-daemon
 export IGNOREEOF=2
+export EMACS="$HOME/.local/bin/emacs"
 
 # External Tool Evals  
 eval "$(zoxide init zsh)"

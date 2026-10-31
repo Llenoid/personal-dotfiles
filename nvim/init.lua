@@ -42,3 +42,8 @@ else
 	-- Load full Neovim configuration (LSP, Lazy.nvim, Plugins, UI)
 	require("config")
 end
+
+vim.cmd([[
+silent! exe 'set background='.$NVIM_COLORSCHEME_BG
+silent! exe 'colorscheme '.$NVIM_COLORSCHEME
+]])
