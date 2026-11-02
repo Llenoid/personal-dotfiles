@@ -23,7 +23,6 @@ local T = {
 	name = "onenord",
 	priority = 1000,
 	config = function()
-		vim.cmd.colorscheme("onenord")
 		local custom_colors = {
 			fg = "#2e3440", -- Matches your dark OneNord background for max legibility
 			bg = "#ffc4a8", -- Warm Nordic Orange (Bright but matte, no blinding neon)
@@ -35,6 +34,7 @@ local T = {
 		for _, group in ipairs(targets) do
 			vim.api.nvim_set_hl(0, group, custom_colors)
 		end
+		vim.cmd.colorscheme("onenord")
 	end,
 }
 
@@ -48,16 +48,6 @@ local U = {
 	end,
 }
 
-local V = {
-	dir = "~/dev/dotfiles/colorschemes/compline",
-	name = "compline",
-	lazy = false,
-	priority = 1000,
-	config = function()
-		vim.cmd.colorscheme("compline")
-	end,
-}
-
 local W = {
 	"shaunsingh/nord.nvim",
 	name = "nord",
@@ -68,4 +58,4 @@ local W = {
 	end,
 }
 
-return S
+return W

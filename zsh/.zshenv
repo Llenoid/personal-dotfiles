@@ -48,7 +48,7 @@ export UV_TOOL_BIN_DIR="$HOME/.local/bin"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export SUDO_EDITOR="$EDITOR"
-export EMACS="$HOME/.config/emacs/"
+export EMACS="/home/brandon/.local/bin/emacs"
 
 path=(${path:#$HOME/.cargo/bin})
 
