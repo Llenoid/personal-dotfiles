@@ -32,6 +32,7 @@
        :ui
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
+       doom-themes              ; what makes DOOM look the way it does
        dashboard         ; a nifty splash screen for Emacs
        ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
        (emoji +unicode)  ; 🙂
@@ -52,6 +53,7 @@
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
+       (web +xwidgets)  ; Enables WebKitGTK integration inside Doom
        zen               ; distraction-free coding or writing
 
        :editor
@@ -66,7 +68,7 @@
        ;;objed             ; text object editing for the innocent
        ;;parinfer          ; turn lisp into python, sort of
        rotate-text       ; cycle region at point between text candidates
-       snippets          ; my elves. They type so I don't have to
+       (snippets +around)          ; my elves. They type so I don't have to
        (whitespace +guess +trim)  ; a butler for your whitespace
        ;;word-wrap         ; soft wrapping with language-aware indent
 
@@ -91,6 +93,9 @@
        ;;(spell +flyspell) ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
+       :lang
+       rest                ; Emacs as a REST client (B7, PARITY-NOTES: .http files)
+
        :tools
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
@@ -103,7 +108,8 @@
        (eval +overlay)     ; run code, run (also, repls)
        lookup              ; navigate your code and its documentation
        ;;llm               ; when I said you needed friends, I didn't mean...
-       (lsp +eglot +peek)      ; M-x vscode
+       ; (lsp +eglot +peek)      ; M-x vscode
+       (lsp +eglot)      ; M-x vscode
        magit             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -137,7 +143,10 @@
        ;;ess               ; emacs speaks statistics
        ;;factor
        ;;faust             ; dsp, but you get to keep your soul
-       ;;fortran           ; in FORTRAN, GOD is REAL (unless declared INTEGER) fsharp            ; ML stands for Microsoft's Language fstar             ; (dependent) types and (monadic) effects and Z2 gdscript          ; the language you waited for (go +lsp)         ; the hipster dialect
+        ;;fortran           ; in FORTRAN, GOD is REAL (unless declared INTEGER)
+        ;;fsharp            ; ML stands for Microsoft's Language
+        ;;fstar             ; (dependent) types and (monadic) effects and Z2
+        ;;gdscript          ; the language you waited for
        ;;(graphql +lsp)    ; Give queries a REST
        ;;(haskell +lsp)    ; a language that's lazier than I am
        (go +lsp)           ; Go langugage server

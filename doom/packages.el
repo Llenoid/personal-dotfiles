@@ -54,8 +54,16 @@
 
 (package! dired-preview)
 (package! evil-args)
+;; A5 (PARITY-NOTES): nvim-parity subword motions (camelCase-aware w/e/b/ge,
+;; replaces nvim-spider). Single file from a multi-plugin repo.
+(package! evil-little-word
+  :recipe (:host github :repo "tarao/evil-plugins"
+           :files ("evil-little-word.el")))
 (package! expand-region)
 (package! evil-textobj-tree-sitter)
+;; C8 (PARITY-NOTES): flash — `Prgebish/flash` is the Emacs port of flash.nvim
+;; (intentional, NOT a typo for folke/flash.nvim). config.el uses
+;; `flash-evil-setup`, which only exists in the Emacs port. Keep as-is.
 (package! flash
   :recipe (:host github :repo "Prgebish/flash"))
 ; (package! grip-mode)
@@ -67,3 +75,10 @@
 (package! dirvish)
 (package! restclient)
 (package! catppuccin-theme)
+(package! emmet-mode)
+;; in ~/.config/doom/packages.el
+(package! yasnippet-snippets)
+(package! cape)
+(package! yasnippet-capf)
+(package! nord-theme)
+(package! mason)
