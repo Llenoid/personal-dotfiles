@@ -4,7 +4,7 @@
 color_file = "/home/brandon/.config/kitty/themes/nord/nord.conf"
 # Hash with dark/light colorschemes, background type => vim colorscheme nane
 colorschemes = {
-    "dark": "nord_moon",
+    "dark": "nord",
 }
 
 import argparse

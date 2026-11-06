@@ -34,6 +34,8 @@ opt.timeoutlen = 300
 opt.cmdheight = 1 -- Command line height (Noice overrides if active)
 opt.showmode = false -- Hide redundant '-- INSERT --' (lualine handles mode)
 opt.conceallevel = 2 -- Conceal markup syntax in Markdown & JSON
+opt.inccommand = split -- split preview for commands
+opt.cmdwinheight = 20
 
 -- Whitespace & Window Formatting
 opt.list = true

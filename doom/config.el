@@ -161,7 +161,7 @@
       :n "SPC b d" #'kill-current-buffer
       :n "[d" #'flycheck-previous-error
       :n "]d" #'flycheck-next-error
-      :n "SPC e" #'flycheck-explain-error
+      :n "SPC e" #'flycheck-explain-error-at-point
       :n "SPC q" #'flycheck-list-errors)
 
 ;; Smart quit buffer (quits special windows with 'q', leaves file buffers intact)
@@ -186,59 +186,46 @@
 (use-package! evil-textobj-tree-sitter
   :after evil
   :config
-  (define-key evil-inner-text-objects-map "F"
-    (evil-textobj-tree-sitter-get-textobj "function.inner"))
-  (define-key evil-outer-text-objects-map "F"
-    (evil-textobj-tree-sitter-get-textobj "function.outer"))
-  (define-key evil-inner-text-objects-map "C"
-    (evil-textobj-tree-sitter-get-textobj "class.inner"))
-  (define-key evil-outer-text-objects-map "C"
-    (evil-textobj-tree-sitter-get-textobj "class.outer"))
-  (define-key evil-inner-text-objects-map "P"
-    (evil-textobj-tree-sitter-get-textobj "parameter.inner"))
-  (define-key evil-outer-text-objects-map "P"
-    (evil-textobj-tree-sitter-get-textobj "parameter.outer"))
-  (define-key evil-inner-text-objects-map "a"
-    (evil-textobj-tree-sitter-get-textobj "parameter.inner"))
-  (define-key evil-outer-text-objects-map "a"
-    (evil-textobj-tree-sitter-get-textobj "parameter.outer"))
-  (define-key evil-inner-text-objects-map "f"
-    (evil-textobj-tree-sitter-get-textobj "function.inner"))
-  (define-key evil-outer-text-objects-map "f"
-    (evil-textobj-tree-sitter-get-textobj "function.outer"))
-  (define-key evil-inner-text-objects-map "c"
-    (evil-textobj-tree-sitter-get-textobj "class.inner"))
-  (define-key evil-outer-text-objects-map "c"
-    (evil-textobj-tree-sitter-get-textobj "class.outer"))
-  (define-key evil-inner-text-objects-map "o"
-    (evil-textobj-tree-sitter-get-textobj ("conditional.inner" "loop.inner")))
-  (define-key evil-outer-text-objects-map "o"
-    (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer"))))
+  (define-key evil-inner-text-objects-map "F" (evil-textobj-tree-sitter-get-textobj "function.inner"))
+  (define-key evil-outer-text-objects-map "F" (evil-textobj-tree-sitter-get-textobj "function.outer"))
+  (define-key evil-inner-text-objects-map "C" (evil-textobj-tree-sitter-get-textobj "class.inner"))
+  (define-key evil-outer-text-objects-map "C" (evil-textobj-tree-sitter-get-textobj "class.outer"))
+  (define-key evil-inner-text-objects-map "P" (evil-textobj-tree-sitter-get-textobj "parameter.inner"))
+  (define-key evil-outer-text-objects-map "P" (evil-textobj-tree-sitter-get-textobj "parameter.outer"))
+  (define-key evil-inner-text-objects-map "a" (evil-textobj-tree-sitter-get-textobj "parameter.inner"))
+  (define-key evil-outer-text-objects-map "a" (evil-textobj-tree-sitter-get-textobj "parameter.outer"))
+  (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner"))
+  (define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
+  (define-key evil-inner-text-objects-map "c" (evil-textobj-tree-sitter-get-textobj "class.inner"))
+  (define-key evil-outer-text-objects-map "c" (evil-textobj-tree-sitter-get-textobj "class.outer"))
+  (define-key evil-inner-text-objects-map "o" (evil-textobj-tree-sitter-get-textobj ("conditional.inner" "loop.inner")))
+  (define-key evil-outer-text-objects-map "o" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer"))))
 
+;; Explicitly constrain parameter motions to Normal state
 (map! :n "g]p" (cmd! (evil-textobj-tree-sitter-goto-textobj "parameter.outer"))
       :n "g[p" (cmd! (evil-textobj-tree-sitter-goto-textobj "parameter.outer" t)))
 
-(map! :nvo
-      "]m" (cmd! (evil-textobj-tree-sitter-goto-textobj "function.outer"))
-      "[m" (cmd! (evil-textobj-tree-sitter-goto-textobj "function.outer" t))
-      "]M" (cmd! (evil-textobj-tree-sitter-goto-textobj "function.outer" nil t))
-      "[M" (cmd! (evil-textobj-tree-sitter-goto-textobj "function.outer" t t))
-      "]]" (cmd! (evil-textobj-tree-sitter-goto-textobj "class.outer"))
-      "[[" (cmd! (evil-textobj-tree-sitter-goto-textobj "class.outer" t))
-      "][" (cmd! (evil-textobj-tree-sitter-goto-textobj "class.outer" nil t))
-      "[]" (cmd! (evil-textobj-tree-sitter-goto-textobj "class.outer" t t)))
+;; Use :nv (Normal + Visual) instead of :nvo or :m to keep Insert mode clean
+(map! :nv "]m" (cmd! (evil-textobj-tree-sitter-goto-textobj "function.outer"))
+      :nv "[m" (cmd! (evil-textobj-tree-sitter-goto-textobj "function.outer" t))
+      :nv "]M" (cmd! (evil-textobj-tree-sitter-goto-textobj "function.outer" nil t))
+      :nv "[M" (cmd! (evil-textobj-tree-sitter-goto-textobj "function.outer" t t))
+      :nv "]]" (cmd! (evil-textobj-tree-sitter-goto-textobj "class.outer"))
+      :nv "[[" (cmd! (evil-textobj-tree-sitter-goto-textobj "class.outer" t))
+      :nv "][" (cmd! (evil-textobj-tree-sitter-goto-textobj "class.outer" nil t))
+      :nv "[]" (cmd! (evil-textobj-tree-sitter-goto-textobj "class.outer" t t)))
 
 (use-package! evil-little-word
   :after evil
   :config
-  ;; Scope strictly to normal and visual states (prevents key sequence traps on 'g')
   (map! :nv "w"  #'evil-forward-little-word-begin
         :nv "b"  #'evil-backward-little-word-begin
         :nv "ge" #'evil-backward-little-word-end
-        :nv "e" #'evil-forward-little-word-end))
+        :nv "e"  #'evil-forward-little-word-end))
 
-(map! :m "]q" #'flycheck-next-error
-      :m "[q" #'flycheck-previous-error)
+;; Use :nv instead of :m for flycheck navigation
+(map! :nv "]q" #'flycheck-next-error
+      :nv "[q" #'flycheck-previous-error)
 
 (map! :leader
       :n "1" #'harpoon-go-to-1
@@ -295,13 +282,25 @@
   :config
   (map! :nv "s" #'flash-jump))
 
-(after! evil-snipe
-  ;; Disable evil-snipe from hijacking 's' and 'S'
-  (evil-snipe-mode -1)
-  (evil-snipe-override-mode -1))
+;; 1. Disable evil-snipe's 1-character overrides completely
+(setq evil-snipe-override-2-char-subst nil)
 
-;; Bind 's' explicitly to flash-jump across Normal and Visual/Motion states
-(map! :nv "s" #'flash-jump)
+(after! evil-snipe
+  ;; Turn off override mode globally
+  (evil-snipe-override-mode -1)
+
+  ;; Unbind s and S from all evil-snipe internal maps
+  (define-key evil-snipe-mode-map (kbd "s") nil)
+  (define-key evil-snipe-mode-map (kbd "S") nil)
+  (define-key evil-snipe-override-mode-map (kbd "s") nil)
+  (define-key evil-snipe-override-mode-map (kbd "S") nil))
+
+;; 2. Force flash-jump over normal and visual states using evil-snipe's map explicitly
+(map! (:map evil-snipe-local-mode-map
+        :n "s" #'flash-jump
+        :v "s" #'flash-jump)
+      (:nv
+        "s" #'flash-jump))
 
 ;; Customize Flash label appearance to match Catppuccin accents
 (custom-set-faces!
@@ -633,3 +632,11 @@
 
   ;; Optional: disable automatic signature help popups if they still cause jitter
   (setq eglot-send-changes-idle-delay 0.5))
+
+(after! evil
+  ;; Free up [ and ] in insert mode so they never hang waiting for chords
+  (define-key evil-insert-state-map (kbd "[") nil)
+  (define-key evil-insert-state-map (kbd "]") nil))
+
+(after! project
+  (setq project-vc-extra-root-markers '(".project" "pyproject.toml" "Cargo.toml" "package.json")))
