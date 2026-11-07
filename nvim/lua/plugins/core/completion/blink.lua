@@ -25,7 +25,7 @@ local M = {
 				implementation = "prefer_rust_with_warning",
 			},
 			sources = {
-				default = { "lsp", "buffer", "snippets", "path", "lazydev" },
+				default = { "lsp", "buffer", "path", "lazydev", "snippets" },
 				per_filetype = {
 					lua = { inherit_defaults = true, "lazydev" },
 					sql = { "dadbod" },
@@ -36,6 +36,7 @@ local M = {
 					lsp = {
 						name = "lsp",
 						module = "blink.cmp.sources.lsp",
+						score_offset = 80,
 						fallbacks = { "buffer" },
 						transform_items = function(_, items)
 							return vim.tbl_filter(function(item)
@@ -60,6 +61,7 @@ local M = {
 					buffer = {
 						name = "buffer",
 						module = "blink.cmp.sources.buffer",
+						score_offset = 20,
 						min_keyword_length = 3,
 						opts = {
 							get_bufnrs = function()
@@ -69,7 +71,7 @@ local M = {
 					},
 					snippets = {
 						module = "blink.cmp.sources.snippets",
-						score_offset = 80, -- Give snippets higher priority so they appear at the top
+						score_offset = 3, -- Give snippets higher priority so they appear at the top
 						opts = {
 							-- friendly_snippets = true,
 							-- extended_filetypes = {

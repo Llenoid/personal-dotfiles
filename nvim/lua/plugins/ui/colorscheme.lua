@@ -14,7 +14,7 @@ local S = {
 	name = "catppuccin",
 	priority = 1000,
 	init = function()
-		vim.cmd.colorscheme("catppuccin-mocha")
+		vim.cmd.colorscheme("catppuccin-frappe")
 	end,
 }
 
@@ -54,8 +54,27 @@ local W = {
 	lazy = false,
 	priority = 1000,
 	config = function()
+		local function clear_diff_backgrounds()
+			for _, group in ipairs({ "DiffAdd", "DiffChange", "DiffDelete", "DiffText" }) do
+				local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
+				hl.bg = "NONE"
+				hl.ctermbg = "NONE"
+				hl.reverse = nil
+				if hl.cterm then
+					hl.cterm.reverse = nil
+				end
+				vim.api.nvim_set_hl(0, group, hl)
+			end
+		end
+
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "nord",
+			callback = clear_diff_backgrounds,
+		})
+
+		-- vim.g.nord_uniform_diff_background = true
 		vim.cmd.colorscheme("nord")
 	end,
 }
 
-return W
+return S

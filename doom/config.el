@@ -640,3 +640,5 @@
 
 (after! project
   (setq project-vc-extra-root-markers '(".project" "pyproject.toml" "Cargo.toml" "package.json")))
+
+(add-hook 'python-mode-hook #'turn-on-font-lock)

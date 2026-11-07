@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
 # Where to store kitty configuration
-color_file = "/home/brandon/.config/kitty/themes/nord/nord.conf"
+color_file = "/home/brandon/.config/kitty/themes/nord/catpuccin.conf"
 # Hash with dark/light colorschemes, background type => vim colorscheme nane
 colorschemes = {
-    "dark": "nord",
+    "dark": "catpuccin-frappe",
 }
 
 import argparse

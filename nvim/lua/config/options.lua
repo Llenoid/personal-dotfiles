@@ -1,67 +1,63 @@
 -- ~/.config/nvim/lua/brandon/config/options.lua
-local opt = vim.opt
+local o = vim.opt
 
 -- Set leaders before lazy.nvim initializes
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Line Numbers & Sign Column
-opt.number = true
-opt.signcolumn = "yes"
-opt.cursorline = true
+o.number = true
+o.signcolumn = "yes"
+o.cursorline = true
 
 -- Tabs & Indentation
-opt.tabstop = 2
-opt.softtabstop = 1
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.autoindent = true
-opt.smartindent = true
+o.tabstop = 2
+o.softtabstop = 1
+o.shiftwidth = 2
+o.expandtab = true
+o.autoindent = true
+o.smartindent = true
 
 -- Search Mechanics
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
-opt.hlsearch = true
+o.ignorecase = true
+o.smartcase = true
+o.incsearch = true
+o.hlsearch = true
 
 -- Visual & Display Options
-opt.termguicolors = true
-opt.wrap = false
-opt.scrolloff = 8
-opt.sidescrolloff = 8
-opt.updatetime = 250
-opt.timeoutlen = 300
-opt.cmdheight = 1 -- Command line height (Noice overrides if active)
-opt.showmode = false -- Hide redundant '-- INSERT --' (lualine handles mode)
-opt.conceallevel = 2 -- Conceal markup syntax in Markdown & JSON
-opt.inccommand = split -- split preview for commands
-opt.cmdwinheight = 20
+o.termguicolors = true
+o.wrap = false
+o.scrolloff = 8
+o.sidescrolloff = 8
+o.updatetime = 250
+o.timeoutlen = 300
+o.cmdheight = 1 -- Command line height (Noice overrides if active)
+o.showmode = false -- Hide redundant '-- INSERT --' (lualine handles mode)
+o.conceallevel = 2 -- Conceal markup syntax in Markdown & JSON
+o.inccommand = split -- split preview for commands
+o.cmdwinheight = 20
 
 -- Whitespace & Window Formatting
-opt.list = true
-opt.listchars = {
-	tab = "   ",
-	trail = "·",
-	nbsp = "␣",
-}
-opt.fillchars = {
+o.list = true
+o.listchars = { tab = "   ", trail = "·", nbsp = "␣" }
+o.fillchars = {
 	eob = " ", -- Remove tilde (~) from empty lines at end of buffer
 }
 
 -- Window Splitting Logic
-opt.splitbelow = true
-opt.splitright = true
+o.splitbelow = true
+o.splitright = true
 
 -- File & Undo Persistence
-opt.undofile = true
-opt.swapfile = false
-opt.backup = false
+o.undofile = true
+o.swapfile = false
+o.backup = false
 
 -- Clipboard Integration (Async Wayland/X11 Support)
-opt.clipboard = "unnamedplus"
+o.clipboard = "unnamedplus"
 
 -- Miscellaneous
-opt.mouse = "a"
-opt.confirm = true
-opt.virtualedit = "block"
-opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25-blinkon500-blinkoff500,r-cr-o:hor20"
+o.mouse = "a"
+o.confirm = true
+o.virtualedit = "block"
+o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25-blinkon500-blinkoff500,r-cr-o:hor20"
